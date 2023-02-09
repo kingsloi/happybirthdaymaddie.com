@@ -74,14 +74,18 @@
             }
         });
 
-		window.addEventListener('load', async () => {
+		window.addEventListener('load', () => {
+			setTimeout(unmute, 1000);
+		});
+
+		const unmute = () => {
 			let video = document.querySelector('video[muted][autoplay]');
 			try {
-				await video.play();
+				video.muted = false;
 			} catch (err) {
 				video.controls = true;
 			}
-		});
+		}
     </script>
 
 </body>
